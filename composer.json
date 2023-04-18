@@ -24,7 +24,7 @@
 	  }
 	},
 	"extra": {
-	  "name": "TinyMCE Field",
+	  "name": "TinyMCE editor field",
 	  "handle": "abm-tinymce"
 	}
 }
