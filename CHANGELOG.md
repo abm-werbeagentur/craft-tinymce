@@ -2,10 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.2 - 2023-05-09
+## 1.0.3 - 2023-05-24
 
 ### Changed
-- Added CHANGELOG.md and Banner for Craft Plugin Store
+- Fixed translations
+
+## 1.0.2 - 2023-05-09
+
+### Added
+- CHANGELOG.md and Banner for Craft Plugin Store
 
 ## 1.0.1 - 2023-04-19
 
