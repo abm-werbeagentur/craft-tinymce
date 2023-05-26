@@ -27,14 +27,15 @@ class FieldAsset extends AssetBundle
      * @inheritdoc
      */
     public $css = [
+        'css/tinymceField.css',
     ];
 
     /**
      * @inheritdoc
      */
     public $js = [
-        "js/utils.js",
-        "js/tinymceInput.js",
+        'js/utils.js',
+        'js/tinymceInput.js',
         'js/craftLink.js',
         'js/craftImage.js',
         'js/langs/de.js',
