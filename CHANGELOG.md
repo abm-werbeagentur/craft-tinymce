@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.4 - 2023-05-30
+
+### Changed
+- Added a workaround when expand a collapsed matrixblock (tinymce iframe has height of 0)
+
 ## 1.0.3 - 2023-05-24
 
 ### Changed
