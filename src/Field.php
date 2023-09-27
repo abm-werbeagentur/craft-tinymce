@@ -232,7 +232,8 @@ class Field extends HtmlField
             $allSites[$site->id] = $site->name;
         }
 
-        $themeUrl = \Craft::$app->assetManager->getPublishedUrl(TinymceAsset::getSourcePath() . '/themes/silver/theme.js', true);
+        $base_url = \Craft::$app->assetManager->getPublishedUrl(TinymceAsset::getSourcePath(),false);
+        $themeUrl =  $base_url . '/themes/silver/theme.js';
         $customerCssUrl = \Craft::$app->assetManager->getPublishedUrl(Craft::getAlias('@config/tinymce/resources')."/".str_replace(".json",".css",$this->tinymceConfig),false);
 
         $config = $this->_getTinymceConfig();
@@ -279,7 +280,8 @@ class Field extends HtmlField
             ],
             $config,
             [
-                'theme_url' => $themeUrl
+                'theme_url' => $themeUrl,
+                'base_url' => $base_url,
             ]
         );
 

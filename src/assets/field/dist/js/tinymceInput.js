@@ -81,6 +81,7 @@ Craft.TinymceInput = Garnish.Base.extend({
 		this.$textarea = $(selector);
 
 		this.tinymceConfig.selector = selector;
+
 		this.tinymceConfig.setup = (editor) => {
 			this.editor = editor;
 

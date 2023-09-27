@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.5 - 2023-09-27
+
+### Fixed
+- the theme.min.js file was created multiple times under /cpresources, when the plugin is loaded.
+
+### Changed
+- Added [base_url](https://www.tiny.cloud/docs/tinymce/6/editor-important-options/#base_url) to the config options to prevent loading errors of plugins, icons und modules. This could happen, when the editor is loaded in the sideload in craft cms 4.5.6
+
 ## 1.0.4 - 2023-05-30
 
 ### Changed
