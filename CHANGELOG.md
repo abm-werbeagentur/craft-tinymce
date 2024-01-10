@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.6 - 2024-01-10
+
+### Changed
+- TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes. [more infos](https://github.com/advisories/GHSA-v626-r774-j7f8)
+
 ## 1.0.5 - 2023-09-27
 
 ### Fixed
