@@ -38,6 +38,7 @@ class FieldAsset extends AssetBundle
         'js/tinymceInput.js',
         'js/craftLink.js',
         'js/craftImage.js',
+        'js/abmChatGpt.js',
         'js/langs/de.js',
     ];
     
