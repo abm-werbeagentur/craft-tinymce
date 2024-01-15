@@ -8,10 +8,10 @@
     "remove_script_host": false,
     "convert_urls": false,
     "paste_as_text": true,
-    "plugins": "autoresize code table anchor link lists craftlink craftimage",
+    "plugins": "autoresize code table anchor link lists craftlink craftimage abmChatGpt",
     "toolbar": [
         "styles | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist",
-        "code | craftimage | craftlink unlink anchor"
+        "code | craftimage | craftlink unlink anchor | abmChatGptLanguages abmChatGptPrompts"
     ],
     "craftlink_adv_tab": false,
     "craftlink_data_attr": [],
