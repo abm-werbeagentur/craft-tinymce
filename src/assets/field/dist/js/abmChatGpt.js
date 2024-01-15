@@ -136,7 +136,7 @@ const AbmChatGptMissing = {
 		dialog_body.items = [
 			{
 				type: 'alertbanner',
-				text: 'You need our <a href="https://plugins.craftcms.com/abm-chatgpt">Chat GPT Plugin</a> to enable this feature.',
+				text: 'You need our <a href="https://plugins.craftcms.com/abm-chatgpt" target="_blank"</a> to enable this feature.',
 				level: 'info',
 				icon: 'info'
 
