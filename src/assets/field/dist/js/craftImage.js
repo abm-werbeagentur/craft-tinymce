@@ -160,7 +160,7 @@ const CraftImage = {
           let transformItem = {
             type: "listbox",
             name: "transform",
-            label: translation.tinymce.image_transform,
+            label: translations.tinymce.image_transform,
             items: [{
               text: 'None',
               value: ''
