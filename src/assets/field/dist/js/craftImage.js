@@ -220,16 +220,18 @@ const CraftImage = {
   isPlaceholderImage: (imgElm) => imgElm.nodeName === 'IMG' && (imgElm.hasAttribute('data-mce-object') || imgElm.hasAttribute('data-mce-placeholder')),
 
   getAssetUrlComponents: (url) => {
-    const matches = url.match(
-      /(.*)#asset:(\d+):(url|transform):?([a-zA-Z][a-zA-Z0-9_]*)?/
+   const matches = url.match(
+      /(.*)#asset:(\d+)(:(url|transform):([a-zA-Z][a-zA-Z0-9_]*)?)?/
     );
-    return matches
-      ? {
-          url: matches[1],
-          assetId: matches[2],
-          transform: matches[3] !== 'url' ? matches[4] : null,
-        }
-      : null;
+
+    if (matches) {
+      return {
+        url: matches[1],
+        assetId: matches[2],
+        transform: matches[4] !== 'url' ? matches[5] : null,
+      };
+    }
+    return null;
   },
 
   getTransformUrl: (assetId, handle, callback) => {
