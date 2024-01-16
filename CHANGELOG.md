@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.8 - 2024-01-16
+
+### Fixed
+
+- Fixed bug with image transforms, when selection a transform entry for the image
+
 ## 1.0.7 - 2024-01-16
 
 ### Fixed
