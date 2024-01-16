@@ -304,6 +304,7 @@ const CraftImage = {
 
   onChange: (dialogApi,details) => {
     if(details.name==="transform") {
+      const editor = tinymce.activeEditor;
       let imgElm = CraftImage.getSelectedImage(editor);
 
       if(imgElm!==null) {
