@@ -16,6 +16,9 @@ tinymce.PluginManager.add('abmChatGpt', function (editor) {
 							let query = editor.getContent();
 
 							if(typeof abm_chatgpt_sendRequest != "undefined") {
+
+								editor.setContent("Processing ...");
+
 								abm_chatgpt_sendRequest(prompt, query, langObj.language).then((response) => {
 		
 									if(response.res) {
@@ -35,6 +38,9 @@ tinymce.PluginManager.add('abmChatGpt', function (editor) {
 											editor.save();
 										}
 									} else {
+										editor.setContent(query, { format: 'html' });
+										editor.save();
+
 										let errorMessages = (response.msg).replaceAll('<br>','\n');
 
 										alert(errorMessages);
