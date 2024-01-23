@@ -28,8 +28,6 @@ composer require abmat/craft-tinymce
 php craft plugin/install abm-tinymce
 ```
 
-Then open your project's control panel, navigate to Settings &rarr; Plugins, find TinyMCE Field and click Install.
-
 ### Requirements
 
 TinyMCE Field 1.x requires Craft CMS 4.
