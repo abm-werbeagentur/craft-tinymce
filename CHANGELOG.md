@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.0 - 2024-02-19
+
+### Added
+
+- Added Plugin "abmChatGpt" and buttons "abmChatGptLanguages" and "abmChatGptPrompts". Works with [ChatGPT for editors](https://plugins.craftcms.com/abm-chatgpt)
+
 ## 1.0.8 - 2024-01-16
 
 ### Fixed
