@@ -86,6 +86,8 @@ tinymce.PluginManager.add('abmChatGpt', function (editor) {
 							let lang = abm_chatgpt_currentSiteLanguage;
 
 							if(typeof abm_chatgpt_sendRequest != "undefined") {
+								editor.setContent("Processing ...");
+
 								abm_chatgpt_sendRequest(prompt, query, lang).then((response) => {
 		
 									if(response.res) {
