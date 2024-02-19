@@ -10,9 +10,9 @@
 	  }
 	],
 	"require": {
-		"craftcms/cms": "^5.0.0-alpha",
-		"craftcms/html-field": "^3.0.0-alpha",
-		"tinymce/tinymce": "^6.8.2"
+		"craftcms/cms": "^5.0.0-beta",
+		"craftcms/html-field": "^3.0.0",
+		"tinymce/tinymce": "^6.8.3"
 	},
 	"support": {
 		"issues": "https://github.com/abm-werbeagentur/craft-tinymce/issues",
