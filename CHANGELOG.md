@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.0 - 2024-02-19
+
+### Added
+
+- Added Plugin "abmChatGpt" and buttons "abmChatGptLanguages" and "abmChatGptPrompts". Works with [ChatGPT for editors](https://plugins.craftcms.com/abm-chatgpt)
+
+## 1.0.8 - 2024-01-16
+
+### Fixed
+
+- Fixed bug with image transforms, when selection a transform entry for the image
+
+## 1.0.7 - 2024-01-16
+
+### Fixed
+
+- Fixed access to the image transform translation in the image modal, when there are transforms for the field
+
 ## 1.0.6 - 2024-01-10
 
 ### Changed
