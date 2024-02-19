@@ -52,6 +52,13 @@ There are some custom TinyMCE Config described here:
 
 For each TinyMCE Config you can add a custom css file in your config/tinymce/resources folder. For example for the Project1.json configuration you can add a Project1.css file to have those styles applied to your custom styles in the backend editor.
 
+### plugin "abmChatGpt" and buttons "abmChatGptLanguages", "abmChatGptPrompts"
+To enable our plugin ["ChatGPT for editors - Plugin"](https://plugins.craftcms.com/abm-chatgpt), add "abmChatGpt" to the plugin list in your custom tinymce config and then add the Buttons "abmChatGptLanguages" and / or "abmChatGptPrompts" to a toolbar.
+Button "abmChatGptLanguages" is for translations.
+Button "abmChatGptPrompts" is for prompts.
+
+On a fresh install, the plugin "abmchatGpt" and the buttons are already in the Default.json file.
+
 ### TinyMCE style_formats
 You can add custom style formats to your editor by added them to your json config file.
 See the [TinyMCE style_formats documentation](https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats) for a list of available config options.
