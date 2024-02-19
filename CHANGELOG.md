@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.0 - 2024-02-19
+
+- Support for Craft CMS 5.x
+
 ## 1.1.0 - 2024-02-19
 
 ### Added

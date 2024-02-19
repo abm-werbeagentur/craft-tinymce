@@ -213,7 +213,7 @@ class Field extends HtmlField
     /**
      * @inheritdoc
      */
-    protected function inputHtml(mixed $value, ElementInterface $element = null): string
+    protected function inputHtml(mixed $value, ElementInterface $element = null, bool $inline): string
     {
 
         $view = Craft::$app->getView();
@@ -450,7 +450,7 @@ class Field extends HtmlField
     private function _getSectionSources(ElementInterface $element = null): array
     {
         $sources = [];
-        $sections = Craft::$app->getSections()->getAllSections();
+        $sections = Craft::$app->getEntries()->getAllSections();
         $showSingles = false;
 
         // Get all sites
