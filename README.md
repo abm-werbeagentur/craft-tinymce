@@ -31,7 +31,6 @@ php craft plugin/install abm-tinymce
 ### Requirements
 
 TinyMCE Field 1.x requires Craft CMS 4.
-TinyMCE Field 2.x requires Craft CMS 5.
 
 
 ## Configuration
