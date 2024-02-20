@@ -7,7 +7,7 @@
 A Craft CMS plugin that adds the [TinyMCE](https://www.tiny.cloud/tinymce/) editor as a field type.
 
 ## Installation
-This plugin can be installed from the [Craft Plugin Store](https://plugins.craftcms.com/) or with [Composer](https://packagist.org/).
+This plugin can be installed from the [Craft Plugin Store](https://plugins.craftcms.com/abm-tinymce) or with [Composer](https://packagist.org/).
 
 ### Craft Plugin Store
 
@@ -30,8 +30,8 @@ php craft plugin/install abm-tinymce
 
 ### Requirements
 
-TinyMCE Field 1.x requires Craft CMS 4.
-
+TinyMCE Field 1.x requires Craft CMS 4.x.
+TinyMCE Field 2.x requires Craft CMS 5.x.
 
 ## Configuration
 You can create custom TinyMCE configs that will be available to your TinyMCE fields. They should be created as JSON files in your config/tinymce/ folder.
