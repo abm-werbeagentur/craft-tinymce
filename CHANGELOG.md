@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.1 - 2024-04-29
+
+### Updated
+
+- Updated to TinyMCE 7
+
 ## 2.0.0 - 2024-02-20
 
 ### Updated
