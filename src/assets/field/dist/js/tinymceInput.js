@@ -81,6 +81,10 @@ Craft.TinymceInput = Garnish.Base.extend({
 		this.$textarea = $(selector);
 
 		this.tinymceConfig.selector = selector;
+		
+		if(this.tinymceConfig.license_key == null) {
+			this.tinymceConfig.license_key = 'gpl';
+		}
 
 		this.tinymceConfig.setup = (editor) => {
 			this.editor = editor;
@@ -114,7 +118,7 @@ Craft.TinymceInput = Garnish.Base.extend({
 			editor.on("focusout",(e) => {
 				if(e.target !== null && e.target !== undefined) {
 					let originalEditor = tinymce.get(e.target.dataset.id);
-					if(originalEditor.isNotDirty === false) {
+					if(originalEditor !== null && originalEditor.isNotDirty === false) {
 						originalEditor.save();
 					}
 				}
