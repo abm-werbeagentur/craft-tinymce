@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.1 - 2024-04-30
+
+### Fixed
+
+- Fixed a bug with loading the custom css file
+
 ## 1.1.0 - 2024-02-19
 
 ### Added
