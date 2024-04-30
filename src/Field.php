@@ -234,7 +234,7 @@ class Field extends HtmlField
 
         $base_url = \Craft::$app->assetManager->getPublishedUrl(TinymceAsset::getSourcePath(),false);
         $themeUrl =  $base_url . '/themes/silver/theme.js';
-        $customerCssUrl = \Craft::$app->assetManager->getPublishedUrl(Craft::getAlias('@config/tinymce/resources')."/".str_replace(".json",".css",$this->tinymceConfig),false);
+        $customerCssUrl = \Craft::$app->assetManager->getPublishedUrl(Craft::getAlias('@config/tinymce/resources')."/".str_replace(".json",".css",$this->tinymceConfig),true);
 
         $config = $this->_getTinymceConfig();
 
