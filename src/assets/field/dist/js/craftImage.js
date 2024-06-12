@@ -299,6 +299,7 @@ const CraftImage = {
       imgElm.removeAttribute("loading");
     }
 
+    editor.save();
     dialogApi.close();
   },
 

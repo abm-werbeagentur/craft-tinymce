@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.3 - 2024-06-12
+
+### Fixed
+
+- sometimes changes on links or images are not saved to the textarea field
+
+
 ## 2.0.2 - 2024-04-30
 
 ### Fixed

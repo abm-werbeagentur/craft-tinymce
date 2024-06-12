@@ -347,6 +347,7 @@ const CraftLink = {
 		if(insert_a_tag) {
 			editor.insertContent(a.outerHTML);
 		}
+		editor.save();
 		dialogApi.close();
 	},
 
