@@ -57,6 +57,7 @@ class Install extends Migration {
 
 	public function generateDefault() {
 		return [
+			"license_key" => "gpl",
 			'branding' => false,
 			'menubar' => false,
 			'contextmenu' => false,
