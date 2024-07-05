@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.4 - 2024-07-05
+
+### Added
+
+- added "license_key" to default.json config on a fresh plugin installation
+
 ## 2.0.3 - 2024-06-12
 
 ### Fixed
