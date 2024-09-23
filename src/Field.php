@@ -3,6 +3,7 @@ namespace abmat\tinymce;
 
 use Craft;
 use craft\base\ElementInterface;
+use craft\base\MergeableFieldInterface;
 use craft\elements\Asset;
 use craft\elements\Category;
 use craft\elements\Entry;
@@ -34,7 +35,7 @@ use HTMLPurifier_Config;
  * @author ABM Feregyhazy & Simon GmbH
  * @since 1.0
  */
-class Field extends HtmlField
+class Field extends HtmlField implements MergeableFieldInterface
 {
 
     /**
@@ -265,7 +266,7 @@ class Field extends HtmlField
                 }
             }
         }
-        
+
         $tinymceInitObject = array_merge(
             [
                 'autoresize_bottom_margin' => 20,
@@ -305,10 +306,10 @@ class Field extends HtmlField
             'tinymceConfig' => $tinymceInitObject,
             'showAllUploaders' => $this->showUnpermittedFiles,
         ];
-        
+
         TinymceAsset::registerTranslations($view);
         $view->registerJs('new Craft.TinymceInput(' . Json::encode($settings) . ');');
-        
+
         $value = $this->prepValueForInput($value, $element);
 
         return implode('', [
@@ -387,16 +388,16 @@ class Field extends HtmlField
     private function _getTinymceConfig(): array
     {
         $config = $this->config('tinymce', $this->tinymceConfig) ?: [];
-        
+
         $languages = array_unique([Craft::$app->language, Craft::$app->getLocale()->getLanguageID()]);
-        
+
         foreach($languages as $lang) {
-        	
+
         	$tinymce_lang = $lang;
 
             if($lang === "de" || preg_match("/^de-/",$lang)) {
         		$tinymce_lang = "de";
-        		
+
         	} elseif($lang === "fr" || preg_match("/^fr-/",$lang)) {
         		$tinymce_lang = "fr_FR";
 
@@ -405,11 +406,11 @@ class Field extends HtmlField
 
             } elseif($lang === "es" || preg_match("/^es-/",$lang)) {
         		$tinymce_lang = "es";
-        		
+
         	}
-        	
+
         	$language_file = FieldAsset::getSourcePath() . '/js/langs/'.$tinymce_lang.'.js';
-        	
+
         	if(is_file($language_file)) {
         		$language_js_url = \Craft::$app->assetManager->getPublishedUrl($language_file,true);
         		if($language_js_url!="") {
@@ -419,7 +420,7 @@ class Field extends HtmlField
 	        	}
         	}
         }
-        
+
         return $config;
     }
 
@@ -432,7 +433,7 @@ class Field extends HtmlField
         $options['HTML.AllowedComments'] = ['pagebreak'];
         return $options;
     }
-    
+
     /**
      * @inheritdoc
      */
