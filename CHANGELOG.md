@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.6 - 2025-01-27
+
+### Added
+- new config option: 'craftlink_default_multisite'. after selecting an entry and this option is true, the site for the link is 'Multisite'.
+
+### Updated
+- field now implements craft\base\CrossSiteCopyableFieldInterface
+
 ## 2.0.5 - 2024-09-23
 
 ### Updated

@@ -22,6 +22,11 @@ tinymce.PluginManager.add('craftlink', function (editor) {
         default: false
     });
 
+	registerOption('craftlink_default_multisite', {
+        processor: 'boolean',
+        default: false
+    });
+
     editor.ui.registry.addMenuButton('craftlink', {
         text: translations.tinymce.linkLabel,
         icon: 'link',
@@ -54,25 +59,31 @@ tinymce.PluginManager.add('craftlink', function (editor) {
 							onSelect: (elements) => {
 								if (elements.length) {
 									const element = elements[0];
-									
+
 									if(!selectedText.length) {
 										selectedText = element.label;
+									}
+
+									let data_linkHref = element.url +
+										'#' +
+										refHandle +
+										':' +
+										element.id;
+
+									let data_siteSelector = "0";
+
+									if(editor.options.get('craftlink_default_multisite')!==true) {
+										data_linkHref += '@' + element.siteId;
+										data_siteSelector = element.siteId+"";
 									}
 
 									const dialogConfig = {
 										title: translations.tinymce.link_insertEditLink,
 										body: CraftLink.bodyDialog(refHandle,editor),
 										initialData: {
-											linkHref: element.url +
-												'#' +
-												refHandle +
-												':' +
-												element.id +
-												'@' +
-												element.siteId,
-
+											linkHref: data_linkHref,
 											text: selectedText,
-											siteSelector: element.siteId+""
+											siteSelector: data_siteSelector+""
 										},
 										buttons: [
 											{
@@ -189,10 +200,10 @@ const CraftLink = {
 			let additionalClasses = "";
 
 			let linkHref = getAttrib(a,"href").replace(/:url$/,"");
-			
+
 			if(editor.options.get('craftlink_anker')) {
 				const pcs = linkHref.match(/^(.*?)(#(?!(entry|category|product|asset)\:[0-9]+).*?)?(#(entry|category|product|asset)\:[0-9]+.*)?$/i);
-				
+
 				if (pcs && pcs.length > 2 && pcs[2] !== undefined) {
 					linkHref = pcs[1] + (pcs[4] !== undefined ? pcs[4] : '');
 					initialData.anchor = pcs[2].replace('#', '');
@@ -258,7 +269,7 @@ const CraftLink = {
 		let node = editor.selection.getNode();
 
 		let a = editor.dom.getParent(node,"a[href]");
-		
+
 		let content = editor.selection.getContent();
 
 		let classes = data.linkClass;
@@ -302,12 +313,12 @@ const CraftLink = {
 				a.innerHTML = content;
 			}
 		}
-		
+
 		a.href = newHref;
 		rawSet(a,"data-mce-href",newHref);
 
 		rawSet(a,"target",data.target);
-		
+
 		if(data.title) {
 			rawSet(a,"title",data.title);
 		}
@@ -386,7 +397,7 @@ const CraftLink = {
 		let a = editor.dom.getParent(node,"a[href]");
 
 		if(isNullable(a) && (editor.selection.getContent()===null || editor.selection.getContent().length===0)) {
-			
+
 			general_items.push({type: "htmlpanel",html: "<div>&nbsp;</div>"});
 			general_items.push({
 				type: "input",
@@ -447,7 +458,7 @@ const CraftLink = {
 				is_entry_link = true;
 			}
 		}
-		
+
 		if(editor.options.get('craftlink_anker')) {
 			general_items.push({type: "htmlpanel",html: "<div>&nbsp;</div>"});
 			general_items.push({
@@ -501,7 +512,7 @@ const CraftLink = {
 		];
 
 		if(editor.options.get('craftlink_data_attr').length) {
-			
+
 			const allowed_data_attributes_for_craftlink = editor.options.get('craftlink_data_attr');
 
 			advanced_items.push({ type: "htmlpanel", html: "<div>&nbsp;</div>" });

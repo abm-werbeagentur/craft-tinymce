@@ -33,7 +33,7 @@ class Install extends Migration {
 		echo 'remove the directory "tinymce" in '.Craft::getAlias('@config')."\n";
         return true;
     }
-	
+
 	public function getPath() {
 		return Craft::$app->getPath()->getConfigPath() . DIRECTORY_SEPARATOR . 'tinymce';
 	}
@@ -84,6 +84,7 @@ class Install extends Migration {
 			'craftlink_adv_tab' => false,
 			'craftlink_data_attr' => [],
 			'craftlink_anker' => true,
+			'craftlink_default_multisite' => false,
 			'link_class_list' => [
 				[
 					'title'=>'None',

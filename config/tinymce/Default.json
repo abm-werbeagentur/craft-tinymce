@@ -17,6 +17,7 @@
     "craftlink_adv_tab": false,
     "craftlink_data_attr": [],
     "craftlink_anker": true,
+    "craftlink_default_multisite": false,
     "link_class_list": [
         {
             "title": "None",

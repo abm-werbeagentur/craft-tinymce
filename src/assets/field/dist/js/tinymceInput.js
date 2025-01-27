@@ -3,18 +3,18 @@ const tinymceCallback = (mutationList,observer) => {
 	for (const mutation of mutationList) {
     	if (mutation.type === "childList") {
 			if(mutation.addedNodes.length) {
-				
+
 				mutation.addedNodes.forEach((node) => {
 
 					if(node.classList) {
 
 						const $tinymceObjects = $(node).find("textarea.tinymce[name!='']");
-					
+
 						if($tinymceObjects.length) {
-							
+
 							$tinymceObjects.each((index, $tinymce_element) => {
 								let tinymce_obj = tinymce.get($tinymce_element.id);
-								
+
 								if(tinymce_obj) {
 									tinymce_obj.save();
 									tinymce_obj.dispatch("refresh", {fieldid: $tinymce_element.id});
@@ -53,7 +53,7 @@ Craft.TinymceInput = Garnish.Base.extend({
 	$textarea: null,
 
 	init: function(settings) {
-		
+
 		this.id = settings.id;
 		this.linkOptions = settings.linkOptions;
 		this.volumes = settings.volumes;
@@ -81,7 +81,7 @@ Craft.TinymceInput = Garnish.Base.extend({
 		this.$textarea = $(selector);
 
 		this.tinymceConfig.selector = selector;
-		
+
 		if(this.tinymceConfig.license_key == null) {
 			this.tinymceConfig.license_key = 'gpl';
 		}
@@ -132,7 +132,7 @@ Craft.TinymceInput = Garnish.Base.extend({
 			// Return new URL
 			return url;
 		};
-		
+
 		tinymce.init(this.tinymceConfig);
 	},
 });

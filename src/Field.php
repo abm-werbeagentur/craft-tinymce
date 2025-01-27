@@ -4,6 +4,7 @@ namespace abmat\tinymce;
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\MergeableFieldInterface;
+use craft\base\CrossSiteCopyableFieldInterface;
 use craft\elements\Asset;
 use craft\elements\Category;
 use craft\elements\Entry;
@@ -35,7 +36,7 @@ use HTMLPurifier_Config;
  * @author ABM Feregyhazy & Simon GmbH
  * @since 1.0
  */
-class Field extends HtmlField implements MergeableFieldInterface
+class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopyableFieldInterface
 {
 
     /**
@@ -216,7 +217,6 @@ class Field extends HtmlField implements MergeableFieldInterface
      */
     protected function inputHtml(mixed $value, ElementInterface $element = null, bool $inline): string
     {
-
         $view = Craft::$app->getView();
         $view->registerAssetBundle(FieldAsset::class);
 
