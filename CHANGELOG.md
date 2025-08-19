@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.x - 2025-08-
+
+### Fixed
+
+- controlpanel only loads customasset if inline editing is activated
+
 ## 2.0.6 - 2025-01-27
 
 ### Added

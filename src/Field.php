@@ -24,6 +24,7 @@ use craft\models\Section;
 use craft\commerce\elements\Product;
 use craft\commerce\elements\Variant;
 use craft\commerce\Plugin as CommercePlugin;
+use abmat\tinymce\assets\field\CustomAsset;
 use abmat\tinymce\assets\field\FieldAsset;
 use abmat\tinymce\assets\tinymce\TinymceAsset;
 use yii\base\Event;
@@ -238,6 +239,10 @@ class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopya
         $customerCssUrl = \Craft::$app->assetManager->getPublishedUrl(Craft::getAlias('@config/tinymce/resources')."/".str_replace(".json",".css",$this->tinymceConfig),true);
 
         $config = $this->_getTinymceConfig();
+
+         if(isset($config['inline']) && $config['inline']) {
+            $view->registerAssetBundle(CustomAsset::class);
+        }
 
         if(count($volumes)===0) {
             $plugins = explode(" ",$config["plugins"]);

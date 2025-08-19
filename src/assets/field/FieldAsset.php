@@ -19,7 +19,6 @@ class FieldAsset extends AssetBundle
      */
     public $depends = [
         CpAsset::class,
-        CustomAsset::class,
         TinymceAsset::class,
     ];
 
@@ -41,15 +40,15 @@ class FieldAsset extends AssetBundle
         'js/abmChatGpt.js',
         'js/langs/de.js',
     ];
-    
+
     public static function getSourcePath() {
     	return __DIR__ . '/dist';
     }
-    
+
     public function init()
     {
     	$this->sourcePath = self::getSourcePath();
-    	
+
     	parent::init();
     }
 }
