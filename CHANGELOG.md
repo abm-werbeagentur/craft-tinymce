@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.8 - 2025-09-03
+
+### Fixed
+
+- changes from version 2.0.7 discarded
+
 ## 2.0.7 - 2025-08-25
 
 ### Fixed
