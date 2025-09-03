@@ -19,6 +19,7 @@ class FieldAsset extends AssetBundle
      */
     public $depends = [
         CpAsset::class,
+        CustomAsset::class,
         TinymceAsset::class,
     ];
 
