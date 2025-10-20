@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.9 - 2025-10-20
+
+### Fixed
+
+- PurfierCustomConfig refactored
+
 ## 2.0.8 - 2025-09-03
 
 ### Fixed
