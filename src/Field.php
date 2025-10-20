@@ -363,24 +363,6 @@ class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopya
     }
 
     /**
-     * Returns the HTML Purifier config used by this field.
-     *
-     * @return array
-     */
-    private function _getPurifierConfig(): array
-    {
-        if ($config = $this->_getConfig('htmlpurifier', $this->purifierConfig)) {
-            return $config;
-        }
-
-        // Default config
-        return [
-            'Attr.AllowedFrameTargets' => ['_blank'],
-            'HTML.AllowedComments' => ['pagebreak'],
-        ];
-    }
-
-    /**
      * Returns the TinyMCE config used by this field.
      *
      * @return array
@@ -661,7 +643,6 @@ class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopya
         return $transformList;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -669,15 +650,8 @@ class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopya
     {
         $purifierConfig = parent::purifierConfig();
 
-        if($def = $purifierConfig->getDefinition('HTML', true)) {
-            $tinymceConfig = $this->_getTinymceConfig();
-            if(array_key_exists("craftlink_data_attr",$tinymceConfig)) {
-                foreach($tinymceConfig["craftlink_data_attr"] as $datakey) {
-                    $def->addAttribute('a', 'data-'.$datakey, 'Text');
-                }
-            }
-            $def->addAttribute('img', 'loading', 'Text');
-        }
+        // adjust the purifier config based on the CKEditor config
+        $purifierConfig = $this->_adjustPurifierConfig($purifierConfig);
 
         // Give plugins a chance to modify the HTML Purifier config, or add new ones
         $event = new ModifyPurifierConfigEvent([
@@ -688,6 +662,35 @@ class Field extends HtmlField implements MergeableFieldInterface, CrossSiteCopya
 
         return $event->config;
     }
+
+    /**
+     * Adjust HTML Purifier
+     *
+     * @param HTMLPurifier_Config $purifierConfig
+     * @return HTMLPurifier_Config
+     * @throws HTMLPurifier_Exception
+     */
+    private function _adjustPurifierConfig(HTMLPurifier_Config $purifierConfig): HTMLPurifier_Config
+    {
+        /** @var HTMLPurifier_HTMLDefinition|null $def */
+        $def = $purifierConfig->getDefinition('HTML', true);
+
+        // These will come back as indexed (key => true) arrays
+        $allowedTargets = $purifierConfig->get('Attr.AllowedFrameTargets');
+        $allowedTargets['_blank'] = true;
+        $purifierConfig->set('Attr.AllowedFrameTargets', array_keys($allowedTargets));
+
+        $tinymceConfig = $this->_getTinymceConfig();
+        if(array_key_exists("craftlink_data_attr",$tinymceConfig)) {
+            foreach($tinymceConfig["craftlink_data_attr"] as $datakey) {
+                $def?->addAttribute('a', 'data-'.$datakey, 'Text');
+            }
+        }
+        $def?->addAttribute('img', 'loading', 'Text');
+
+        return $purifierConfig;
+    }
+
 
     /**
      * @inheritdoc
